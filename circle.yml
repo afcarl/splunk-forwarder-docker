@@ -1,0 +1,13 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - docker build -t blikk/splunk-forwarder-docker:latest .
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker push blikk/splunk-forwarder-docker:latest
